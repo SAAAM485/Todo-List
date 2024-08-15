@@ -1,6 +1,6 @@
-import {projectLibrary, updateProjectLibrary} from './projectLibrary.js';
+import { updateTodoLibrary } from "./todoLibrary";
 
-export default function addProjectHandler(event) {
+export default function addTodoHandler(event) {
     event.preventDefault();
     const dialog = document.querySelector('dialog');
     const title = document.querySelector('#title').value;
@@ -8,6 +8,5 @@ export default function addProjectHandler(event) {
     const dueDate = document.querySelector('#due_date').value;
     const priority = document.querySelector('input[name="priority"]:checked').value;;
     dialog.close();
-    console.log(title);
-    updateProjectLibrary(title, description, dueDate, priority)
+    updateTodoLibrary(title, description, dueDate, priority)
 };

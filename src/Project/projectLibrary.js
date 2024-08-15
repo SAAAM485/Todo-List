@@ -7,4 +7,4 @@ function updateProjectLibrary(title, description, dueDate, priority) {
     projectLibrary.push(project);
 }
 
-export {projectLibrary, updateProjectLibrary};
+export { projectLibrary, updateProjectLibrary };

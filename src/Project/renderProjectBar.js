@@ -1,5 +1,5 @@
 import clearProjectBar from './clearProjectBar.js';
-import {projectLibrary, updateProjectLibrary } from './projectLibrary.js';
+import { projectLibrary, updateProjectLibrary } from './projectLibrary.js';
 import renderProjectPage from './renderProjectPage.js';
 
 

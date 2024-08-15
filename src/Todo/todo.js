@@ -1,4 +1,4 @@
-const Todo = function(title, description, dueDate, priority) {
+const Todo = function (title, description, dueDate, priority) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
