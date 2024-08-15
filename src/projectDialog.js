@@ -1,6 +1,7 @@
 import addProjectHandler from './addProject.js';
 import { projectLibrary } from './projectLibrary.js';
 import renderProjectBar from './renderProjectBar.js';
+import renderProjectPage from './renderProjectPage.js';
 
 export default function projectDiolog() {
     const projectDialog = document.querySelector('dialog');
@@ -12,6 +13,6 @@ export default function projectDiolog() {
     addBtn.addEventListener('click', (event) => {
         addProjectHandler(event);
         renderProjectBar();
-        console.log(projectLibrary);
-    });
+        renderProjectPage();
+    }, {once: true});
 };

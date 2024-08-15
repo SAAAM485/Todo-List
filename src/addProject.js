@@ -10,4 +10,4 @@ export default function addProjectHandler(event) {
     dialog.close();
     console.log(title);
     updateProjectLibrary(title, description, dueDate, priority)
-}
+};
