@@ -5,7 +5,7 @@ const todoLibrary = [];
 
 function updateProjectTodoLibrary(index, title, description, dueDate, priority) {
     let todo = new Todo(title, description, dueDate, priority);
-    projectLibraryLibrary[index].push(todo);
+    projectLibrary[index].push(todo);
 }
 
 function updateTodoLibrary(title, description, dueDate, priority) {

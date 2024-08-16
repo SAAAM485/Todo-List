@@ -1,3 +1,6 @@
+import addTodoHandler from './addTodo.js';
+import renderTodoPage from './renderTodoPage.js';
+
 export default function todoDiolog() {
     const todoDialog = document.querySelector('dialog');
     const dialogTitle = document.querySelector('h1');
