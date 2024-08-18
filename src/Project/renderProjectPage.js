@@ -9,6 +9,7 @@ export default function renderProjectPage(index = projectLibrary.length - 1) {
     const projectTitle = document.createElement('div');
     const projectDescription = document.createElement('div');
     const projectDueDate = document.createElement('div');
+    const projectToDate = document.createElement('div');
     const projectPriority = document.createElement('div');
     const addTodo = document.createElement('button');
     const editBtn = document.createElement('button')
@@ -17,6 +18,7 @@ export default function renderProjectPage(index = projectLibrary.length - 1) {
     projectTitle.textContent = projectLibrary[index][0].title;
     projectDescription.textContent = projectLibrary[index][0].description;
     projectDueDate.textContent = projectLibrary[index][0].dueDate;
+    projectToDate.textContent = projectLibrary[index][0].toDate;
     projectPriority.textContent = projectLibrary[index][0].priority;
     editBtn.textContent = 'Edit';
     delBtn.textContent = 'Delete';
@@ -29,6 +31,7 @@ export default function renderProjectPage(index = projectLibrary.length - 1) {
     mainContainer.appendChild(projectTitle);
     mainContainer.appendChild(projectDescription);
     mainContainer.appendChild(projectDueDate);
+    mainContainer.appendChild(projectToDate);
     mainContainer.appendChild(projectPriority);
     mainContainer.appendChild(editBtn);
     mainContainer.appendChild(delBtn);
@@ -36,6 +39,6 @@ export default function renderProjectPage(index = projectLibrary.length - 1) {
 
     for (let i = 1; i < projectLibrary[index].length; i++) {
         const todo = projectLibrary[index][i];
-        createTodoCard(todo.title, todo.description, todo.dueDate, todo.priority);
+        createTodoCard(todo.title, todo.description, todo.dueDate, todo.toDate, todo.priority);
     }
 };
