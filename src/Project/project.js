@@ -1,9 +1,11 @@
-const Project = function (title, description, dueDate, toDate, priority) {
+const Project = function (title, description, date, dueDate, toDate, priority) {
     this.title = title;
     this.description = description;
+    this.date = date;
     this.dueDate = dueDate;
     this.toDate = toDate;
     this.priority = priority;
+    this.todos = [];
 };
 
 export default Project;

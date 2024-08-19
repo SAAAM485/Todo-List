@@ -3,13 +3,13 @@ import Todo from "./todo.js";
 
 const todoLibrary = [];
 
-function updateProjectTodoLibrary(index, title, description, dueDate, toDate, priority) {
-    let todo = new Todo(title, description, dueDate, toDate, priority);
-    projectLibrary[index].push(todo);
+function updateProjectTodoLibrary(index, title, description, date, dueDate, toDate, priority) {
+    let todo = new Todo(title, description, date, dueDate, toDate, priority);
+    projectLibrary[index].todos.push(todo);
 }
 
-function updateTodoLibrary(title, description, dueDate, toDate, priority) {
-    let todo = new Todo(title, description, dueDate, toDate, priority);
+function updateTodoLibrary(title, description, date, dueDate, toDate, priority) {
+    let todo = new Todo(title, description, date, dueDate, toDate, priority);
     todoLibrary.push(todo);
 }
 
