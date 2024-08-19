@@ -5,6 +5,7 @@ import renderProjectPage from './render/renderProjectPage.js';
 export default function projectTodoDialog(index) {
     const todoDialog = document.querySelector('dialog');
     const dialogTitle = document.querySelector('h1');
+    const dialogForm = document.querySelector('form');
     dialogTitle.textContent = `Please Enter The Todo Info Of ${projectLibrary[index].title}`;
     const dateInput = document.querySelector('input[name="due_date"]');
     const now = new Date(Date.now()).toISOString().split('T')[0].toLocaleString([], {
@@ -21,5 +22,6 @@ export default function projectTodoDialog(index) {
     addBtn.addEventListener('click', (event) => {
         addProjectTodoHandler(event, index);
         renderProjectPage();
+        dialogForm.reset();
     }, { once: true });
 };
