@@ -1,12 +1,16 @@
 import clearPage from '../../clearPage.js';
 import { projectLibrary } from '../projectLibrary.js';
 import projectTodoDialog from '../projectTodoDialog.js';
-import createTodoCard from '../../Todo/createTodoCard.js';
+import createCards from '../../Todo/createCards.js';
 import renderSortMethod from '../../Todo/render/renderSortMethod.js';
 import projectTodosSortedByDate from '../sort/projectTodosSortedByDate.js';
 import projectTodosSortedByPrio from '../sort/projectTodosSortedByDate.js';
+import deleteProject from '../deleteProject.js';
+import renderProjects from './renderProjects.js';
+import renderProjectBar from './renderProjectBar.js';
+import deleteProjectTodo from '../deleteProjectTodo.js';
 
-export default function renderProjectPage(index = projectLibrary.length - 1, sort = projectLibrary[projectLibrary.length - 1].todos, method = 'bycreate') {
+export default function renderProjectPage(index = projectLibrary.length - 1, method = 'bycreate') {
     clearPage()
     const mainContainer = document.querySelector('.mainContainer');
     const projectTitle = document.createElement('div');
@@ -17,6 +21,12 @@ export default function renderProjectPage(index = projectLibrary.length - 1, sor
     const addTodo = document.createElement('button');
     const editBtn = document.createElement('button')
     const delBtn = document.createElement('button')
+
+    delBtn.addEventListener('click', () => {
+        deleteProject(index);
+        renderProjectBar();
+        renderProjects();
+    });
 
     projectTitle.textContent = projectLibrary[index].title;
     projectDescription.textContent = projectLibrary[index].description;
@@ -42,8 +52,17 @@ export default function renderProjectPage(index = projectLibrary.length - 1, sor
 
     renderSortMethod(method);
 
-    sort.forEach(todo => {
-        createTodoCard(todo.title, todo.description, todo.dueDate, todo.toDate, todo.priority);
+    const sort = projectLibrary[index].todos;
+
+    sort.forEach((todo, sortIndex) => {
+        let card = createCards(todo.title, todo.description, todo.dueDate, todo.toDate, todo.priority);
+        card.delBtn.addEventListener('click', () => {
+            deleteProjectTodo(sort, sortIndex);
+            renderProjectPage(index, sort, method);
+        });
+        card.editBtn.addEventListener('click', () => {
+
+        });
     });
 
     const sortMethod = document.querySelector('select');

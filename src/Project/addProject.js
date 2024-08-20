@@ -11,5 +11,5 @@ export default function addProjectHandler(event) {
     const toDate = `${formatDistanceToNow(dueDate)} left`;
     const priority = document.querySelector('input[name="priority"]:checked').value;;
     dialog.close();
-    updateProjectLibrary(title, description, date, dueDate, toDate, priority)
+    updateProjectLibrary(title, description, date, dueDate, toDate, priority);
 };

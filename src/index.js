@@ -3,9 +3,7 @@ import './style.css';
 import todoDiolog from './Todo/todoDialog';
 
 function RenderUI() {
-    const dialog = document.querySelector('dialog');
-    const cancelBtn = document.querySelector('#cancel_btn');
-    cancelBtn.addEventListener('click', () => dialog.close());
+
 }
 
 function listeners() {
