@@ -1,5 +1,5 @@
-import { compareAsc } from 'date-fns';
-import { todoLibrary } from '../todoLibrary';
+import { compareAsc } from "date-fns";
+import { todoLibrary } from "../todoLibrary";
 
 export default function todosSortedByDate() {
     function myCompareAsc(a, b) {
@@ -7,4 +7,4 @@ export default function todosSortedByDate() {
     }
     const todosSortedByDate = todoLibrary.toSorted(myCompareAsc);
     return todosSortedByDate;
-};
+}

@@ -1,4 +1,4 @@
-import { todoLibrary } from '../todoLibrary';
+import { todoLibrary } from "../todoLibrary";
 
 export default function todosSortedByPrio() {
     function comparePrio(a, b) {
@@ -12,4 +12,4 @@ export default function todosSortedByPrio() {
     }
     const todosSortedByPrio = todoLibrary.toSorted(comparePrio);
     return todosSortedByPrio;
-};
+}

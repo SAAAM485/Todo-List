@@ -1,4 +1,4 @@
-import { projectLibrary } from '../projectLibrary';
+import { projectLibrary } from "../projectLibrary";
 
 export default function projectTodosSortedByPrio(index) {
     function comparePrio(a, b) {
@@ -10,6 +10,7 @@ export default function projectTodosSortedByPrio(index) {
         }
         return 0;
     }
-    const projectTodosSortedByPrio = projectLibrary[index].todos.toSorted(comparePrio);
+    const projectTodosSortedByPrio =
+        projectLibrary[index].todos.toSorted(comparePrio);
     return projectTodosSortedByPrio;
-};
+}

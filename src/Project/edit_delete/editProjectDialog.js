@@ -1,12 +1,10 @@
-import addProjectHandler from "./addProject.js";
-import renderProjectBar from "./render/renderProjectBar.js";
-import renderProjectPage from "./render/renderProjectPage.js";
+import { editProjectAddHandler } from "./editProject";
 
-export default function projectDiolog() {
-    const projectDialog = document.querySelector("dialog");
+export default function editProjectDialog(index, method) {
+    const todoDialog = document.querySelector("dialog");
     const dialogTitle = document.querySelector("h1");
     const dialogForm = document.querySelector("form");
-    dialogTitle.textContent = "Please Enter The Project Info";
+    dialogTitle.textContent = `Please Edit The ${sort[sortIndex].title} Todo Info`;
     const dateInput = document.querySelector('input[name="due_date"]');
     const now = new Date(Date.now())
         .toISOString()
@@ -18,15 +16,13 @@ export default function projectDiolog() {
         });
     dateInput.min = now;
     dateInput.max = "";
-    projectDialog.showModal();
+    todoDialog.showModal();
 
     const addBtn = document.querySelector("#add_btn");
     addBtn.addEventListener(
         "click",
         (event) => {
-            addProjectHandler(event);
-            renderProjectBar();
-            renderProjectPage();
+            editProjectAddHandler(event, index);
             dialogForm.reset();
         },
         { once: true }
