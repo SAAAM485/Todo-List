@@ -24,7 +24,6 @@ export default function editTodoDialog(todoArr, index) {
         "click",
         (event) => {
             editTodoAddHandler(event, todoArr, index);
-            sortMethod();
             dialogForm.reset();
         },
         { once: true }

@@ -2,6 +2,7 @@ import projectDiolog from "./Project/projectDialog";
 import "./style.css";
 import todoDiolog from "./Todo/todoDialog";
 import renderTodoPage from "./Todo/render/renderTodoPage";
+import renderUpcomingPage from "./Todo/render/renderUpcomingPage";
 
 function RenderUI() {}
 
@@ -19,6 +20,11 @@ function listeners() {
     const todos = document.querySelector("#todos");
     todos.addEventListener("click", () => {
         renderTodoPage();
+    });
+
+    const upcoming = document.querySelector("#upcoming");
+    upcoming.addEventListener("click", () => {
+        renderUpcomingPage();
     });
 }
 

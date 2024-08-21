@@ -1,18 +1,12 @@
 import clearPage from "../../clearPage";
 import createCards from "../createCards";
-import renderSortMethod from "./renderSortMethod";
-import { todoLibrary } from "../todoLibrary";
 import deleteTodo from "../edit_delete/deleteTodo.js";
 import { editTodo } from "../edit_delete/editTodo.js";
 import editTodoDialog from "../edit_delete/editTodoDialog.js";
-import { sortMethodChanged, sortMethod } from "../sort/sortMethod.js";
+import upcomingSorted from "../sort/upcomingSorted.js";
 
-export default function renderTodoPage(
-    todoArr = todoLibrary,
-    method = "bycreate"
-) {
+export default function renderUpcomingPage(todoArr = upcomingSorted()) {
     clearPage();
-    renderSortMethod(method);
 
     todoArr.forEach((todo, index) => {
         let card = createCards(
@@ -24,13 +18,12 @@ export default function renderTodoPage(
         );
         card.delBtn.addEventListener("click", () => {
             deleteTodo(todoArr, index);
-            sortMethod();
+            renderUpcomingPage();
         });
         card.editBtn.addEventListener("click", () => {
             editTodo(todoArr, index);
             editTodoDialog(todoArr, index);
-            sortMethod();
+            renderUpcomingPage();
         });
     });
-    sortMethodChanged();
 }
