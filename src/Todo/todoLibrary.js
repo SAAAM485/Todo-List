@@ -13,4 +13,9 @@ function updateTodoLibrary(title, description, date, dueDate, toDate, priority) 
     todoLibrary.push(todo);
 }
 
-export { todoLibrary, updateTodoLibrary, updateProjectTodoLibrary };
+function editTodoLibrary(index, title, description, date, dueDate, toDate, priority) {
+    let todo = new Todo(title, description, date, dueDate, toDate, priority);
+    todoLibrary.splice(index, 1, todo);
+}
+
+export { todoLibrary, updateTodoLibrary, updateProjectTodoLibrary, editTodoLibrary };

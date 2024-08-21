@@ -3,32 +3,25 @@ import clearPage from '../../clearPage';
 import createCards from '../createCards';
 import renderSortMethod from './renderSortMethod';
 import { todoLibrary } from '../todoLibrary';
-import todosSortedByDate from '../sort/todosSortedByDate';
-import todosSortedByPrio from '../sort/todoSortedByPrio';
-import deleteTodo from '../deleteTodojs';
+import deleteTodo from '../deleteTodo.js';
+import { editTodo } from '../editTodo.js';
+import editTodoDiolog from '../editTodoDialog.js';
+import {sortMethodChanged, sortMethod} from '../sort/sortMethod.js';
 
 export default function renderTodoPage(todoArr = todoLibrary, method = 'bycreate') {
-    clearPage(); 
+    clearPage();
     renderSortMethod(method);
 
     todoArr.forEach((todo, index) => {
         let card = createCards(todo.title, todo.description, todo.dueDate, todo.toDate, todo.priority);
         card.delBtn.addEventListener('click', () => {
-            deleteTodo(index);
-            renderTodoPage(todoArr, method);
+            deleteTodo(todoArr, index);
+            sortMethod();
         });
-        card.editBtn.addEventListener('click', () => {
-
+        card.editBtn.addEventListener('click', (event) => {
+            editTodo(todoArr, index);
+            editTodoDiolog(todoArr, index, method);
         });
     });
-    const sortMethod = document.querySelector('select');
-    sortMethod.addEventListener('change', () => {
-        if (sortMethod.value == 'bycreate') {
-            renderTodoPage();
-        } else if (sortMethod.value == 'bydate') {
-            renderTodoPage(todosSortedByDate(), 'bydate')
-        } else {
-            renderTodoPage(todosSortedByPrio(), 'byprio')
-        }
-    });
+    sortMethodChanged();
 };
