@@ -17,6 +17,12 @@ export default function renderProjects() {
             project.toDate,
             project.priority
         );
+        card.doneBtn.addEventListener("click", () => {
+            projectLibrary[index].done = true;
+            projectLibrary[index].todos.forEach((todo) => {
+                todo.done = true;
+            });
+        });
         card.delBtn.addEventListener("click", () => {
             deleteProject(index);
             renderProjectBar();

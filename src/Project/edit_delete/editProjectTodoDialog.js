@@ -1,11 +1,12 @@
 import { editProjectTodoAddHandler } from "./editProjectTodo";
 import { projectTodoSortMethod } from "../sort/projectTodoSortMethod";
+import { projectLibrary } from "../projectLibrary";
 
 export default function editProjectTodoDialog(index, sort, sortIndex) {
     const todoDialog = document.querySelector("dialog");
     const dialogTitle = document.querySelector("h1");
     const dialogForm = document.querySelector("form");
-    dialogTitle.textContent = `Please Edit The ${sort[sortIndex].title} Todo Info`;
+    dialogTitle.textContent = `Please Edit The ${sort[sortIndex].title} Project Todo Info`;
     const dateInput = document.querySelector('input[name="due_date"]');
     const now = new Date(Date.now())
         .toISOString()
@@ -16,7 +17,7 @@ export default function editProjectTodoDialog(index, sort, sortIndex) {
             day: "numeric",
         });
     dateInput.min = now;
-    dateInput.max = "";
+    dateInput.max = projectLibrary[index].date;
     todoDialog.showModal();
 
     const addBtn = document.querySelector("#add_btn");
@@ -24,7 +25,7 @@ export default function editProjectTodoDialog(index, sort, sortIndex) {
         "click",
         (event) => {
             editProjectTodoAddHandler(event, index, sort, sortIndex);
-            projectTodoSortMethod();
+            projectTodoSortMethod(index, sort);
             dialogForm.reset();
         },
         { once: true }

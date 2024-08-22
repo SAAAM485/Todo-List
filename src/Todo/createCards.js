@@ -14,6 +14,7 @@ export default function createCards(
     const cardDueDate = document.createElement("div");
     const cardToDate = document.createElement("div");
     const cardPriority = document.createElement("div");
+    const doneBtn = document.createElement("button");
     const editBtn = document.createElement("button");
     const delBtn = document.createElement("button");
 
@@ -22,6 +23,7 @@ export default function createCards(
     cardDueDate.textContent = dueDate;
     cardToDate.textContent = toDate;
     cardPriority.textContent = priority;
+    doneBtn.textContent = "Done";
     editBtn.textContent = "Edit";
     delBtn.textContent = "Delete";
 
@@ -30,9 +32,10 @@ export default function createCards(
     cardDiv.appendChild(cardDueDate);
     cardDiv.appendChild(cardToDate);
     cardDiv.appendChild(cardPriority);
+    cardDiv.appendChild(doneBtn);
     cardDiv.appendChild(editBtn);
     cardDiv.appendChild(delBtn);
     mainContainer.appendChild(cardDiv);
 
-    return { delBtn, editBtn, cardDiv };
+    return { doneBtn, delBtn, editBtn, cardDiv };
 }

@@ -15,7 +15,7 @@ function projectTodoSortMethodChanged() {
     });
 }
 
-function projectTodoSortMethod() {
+function projectTodoSortMethod(index, sort) {
     const sortMethod = document.querySelector("select");
 
     if (sortMethod.value == "bycreate") {

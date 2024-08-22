@@ -29,7 +29,8 @@ function editProjectLibrary(
     dueDate,
     toDate,
     priority,
-    todos
+    todos,
+    done
 ) {
     let project = new Project(
         title,
@@ -38,23 +39,10 @@ function editProjectLibrary(
         dueDate,
         toDate,
         priority,
-        todos
+        todos,
+        done
     );
     projectLibrary.splice(index, 1, project);
 }
 
-function editProjectTodoLibrary (
-    projectIndex,
-    todoIndex,
-    title,
-    description,
-    date,
-    dueDate,
-    toDate,
-    priority
-){
-    let todo = new Todo(title, description, date, dueDate, toDate, priority);
-    projectLibrary[projectIndex].todos.splice(todoIndex, 1, todo);
-}
-
-export { projectLibrary, updateProjectLibrary, editProjectLibrary, editProjectTodoLibrary };
+export { projectLibrary, updateProjectLibrary, editProjectLibrary };

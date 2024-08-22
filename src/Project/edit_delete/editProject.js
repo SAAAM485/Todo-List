@@ -33,6 +33,7 @@ function editProjectAddHandler(event, index) {
         'input[name="priority"]:checked'
     ).value;
     const todos = projectLibrary[index].todos;
+    const done = projectLibrary[index].done;
 
     dialog.close();
     editProjectLibrary(
@@ -43,7 +44,8 @@ function editProjectAddHandler(event, index) {
         dueDate,
         toDate,
         priority,
-        todos
+        todos,
+        done
     );
 }
 

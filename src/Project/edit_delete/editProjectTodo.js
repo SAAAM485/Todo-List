@@ -1,4 +1,5 @@
-import { projectLibrary, editProjectTodoLibrary } from "../projectLibrary";
+import { projectLibrary } from "../projectLibrary";
+import { editProjectTodoLibrary } from "../../Todo/todoLibrary.js";
 import { format, formatDistanceToNow } from "date-fns";
 
 function editProjectTodo(sort, sortIndex) {
@@ -35,6 +36,7 @@ function editProjectTodoAddHandler(event, index, sort, sortIndex) {
     const priority = document.querySelector(
         'input[name="priority"]:checked'
     ).value;
+    const done = sort[sortIndex].done;
 
     dialog.close();
     editProjectTodoLibrary(
@@ -45,7 +47,8 @@ function editProjectTodoAddHandler(event, index, sort, sortIndex) {
         date,
         dueDate,
         toDate,
-        priority
+        priority,
+        done
     );
 }
 

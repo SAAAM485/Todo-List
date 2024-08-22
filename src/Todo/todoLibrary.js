@@ -16,6 +16,29 @@ function updateProjectTodoLibrary(
     projectLibrary[index].todos.push(todo);
 }
 
+function editProjectTodoLibrary(
+    projectIndex,
+    todoIndex,
+    title,
+    description,
+    date,
+    dueDate,
+    toDate,
+    priority,
+    done
+) {
+    let todo = new Todo(
+        title,
+        description,
+        date,
+        dueDate,
+        toDate,
+        priority,
+        done
+    );
+    projectLibrary[projectIndex].todos.splice(todoIndex, 1, todo);
+}
+
 function updateTodoLibrary(
     title,
     description,
@@ -35,9 +58,18 @@ function editTodoLibrary(
     date,
     dueDate,
     toDate,
-    priority
+    priority,
+    done
 ) {
-    let todo = new Todo(title, description, date, dueDate, toDate, priority);
+    let todo = new Todo(
+        title,
+        description,
+        date,
+        dueDate,
+        toDate,
+        priority,
+        done
+    );
     todoLibrary.splice(index, 1, todo);
 }
 
@@ -46,4 +78,5 @@ export {
     updateTodoLibrary,
     updateProjectTodoLibrary,
     editTodoLibrary,
+    editProjectTodoLibrary,
 };

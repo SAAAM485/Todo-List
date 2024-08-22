@@ -16,6 +16,12 @@ export default function renderUpcomingPage(todoArr = upcomingSorted()) {
             todo.toDate,
             todo.priority
         );
+        card.doneBtn.addEventListener("click", () => {
+            const ogIndex = todoLibrary.findIndex(
+                (thisTodo) => thisTodo.title === todo.title
+            );
+            todoLibrary[ogIndex].done = true;
+        });
         card.delBtn.addEventListener("click", () => {
             deleteTodo(todoArr, index);
             renderUpcomingPage();

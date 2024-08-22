@@ -8,10 +8,7 @@ import renderProjects from "./renderProjects.js";
 import renderProjectBar from "./renderProjectBar.js";
 import deleteProjectTodo from "../edit_delete/deleteProjectTodo.js";
 import { projectTodoSortMethodChanged } from "../sort/projectTodoSortMethod.js";
-import {
-    editProject,
-    editProjectAddHandler,
-} from "../edit_delete/editProject.js";
+import { editProject } from "../edit_delete/editProject.js";
 import editProjectDialog from "../edit_delete/editProjectDialog.js";
 import { editProjectTodo } from "../edit_delete/editProjectTodo.js";
 import editProjectTodoDialog from "../edit_delete/editProjectTodoDialog.js";
@@ -28,6 +25,7 @@ export default function renderProjectPage(
     const projectDueDate = document.createElement("div");
     const projectToDate = document.createElement("div");
     const projectPriority = document.createElement("div");
+    const doneBtn = document.createElement("button");
     const addTodo = document.createElement("button");
     const editBtn = document.createElement("button");
     const delBtn = document.createElement("button");
@@ -37,14 +35,20 @@ export default function renderProjectPage(
     projectDueDate.textContent = projectLibrary[index].dueDate;
     projectToDate.textContent = projectLibrary[index].toDate;
     projectPriority.textContent = projectLibrary[index].priority;
+    doneBtn.textContent = "Done";
     editBtn.textContent = "Edit";
     delBtn.textContent = "Delete";
     addTodo.textContent = "+";
 
+    doneBtn.addEventListener("click", () => {
+        projectLibrary[index].done = true;
+        sort.forEach((todo) => {
+            todo.done = true;
+        });
+    });
     addTodo.addEventListener("click", () => {
         projectTodoDialog(index);
     });
-
     delBtn.addEventListener("click", () => {
         deleteProject(index);
         renderProjectBar();
@@ -61,29 +65,39 @@ export default function renderProjectPage(
     mainContainer.appendChild(projectDueDate);
     mainContainer.appendChild(projectToDate);
     mainContainer.appendChild(projectPriority);
+    mainContainer.appendChild(doneBtn);
     mainContainer.appendChild(editBtn);
     mainContainer.appendChild(delBtn);
     mainContainer.appendChild(addTodo);
 
     renderSortMethod(method);
 
-    sort.forEach((todo, sortIndex) => {
-        let card = createCards(
-            todo.title,
-            todo.description,
-            todo.dueDate,
-            todo.toDate,
-            todo.priority
-        );
-        card.delBtn.addEventListener("click", () => {
-            deleteProjectTodo(sort, sortIndex);
-            renderProjectPage(index, sort, method);
+    if (sort !== undefined) {
+        sort.forEach((todo, sortIndex) => {
+            let card = createCards(
+                todo.title,
+                todo.description,
+                todo.dueDate,
+                todo.toDate,
+                todo.priority
+            );
+            card.doneBtn.addEventListener("click", () => {
+                sort[sortIndex].todos.forEach((todo) => {
+                    todo.done = true;
+                });
+            });
+            card.delBtn.addEventListener("click", () => {
+                deleteProjectTodo(sort, sortIndex);
+                renderProjectPage(index, sort, method);
+            });
+            card.editBtn.addEventListener("click", () => {
+                editProjectTodo(sort, sortIndex);
+                editProjectTodoDialog(index, sort, sortIndex);
+                renderProjectBar();
+                renderProjectPage(index);
+            });
         });
-        card.editBtn.addEventListener("click", () => {
-            editProjectTodo(sort, sortIndex);
-            editProjectTodoDialog(index, sort, sortIndex);
-        });
-    });
+    }
 
     projectTodoSortMethodChanged();
 }
