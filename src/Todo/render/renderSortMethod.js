@@ -1,5 +1,4 @@
 export default function renderSortMethod(method) {
-    const mainContainer = document.querySelector(".mainContainer");
     const sortMethod = document.createElement("select");
     const byCreate = document.createElement("option");
     const byDate = document.createElement("option");
@@ -24,5 +23,5 @@ export default function renderSortMethod(method) {
     sortMethod.appendChild(byDate);
     sortMethod.appendChild(byPrio);
 
-    mainContainer.appendChild(sortMethod);
+    return sortMethod;
 }

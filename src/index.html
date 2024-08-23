@@ -29,64 +29,58 @@
             <ul class="projectBar">
                 <li><button class="sideBtn">Projects</button></li>
             </ul>
-            <dialog>
-                <h1>Please Enter Info</h1>
-                <form method="dialog">
-                    <label for="title">Title</label>
-                    <input
-                        type="text"
-                        id="title"
-                        name="title"
-                        required
-                        autofocus
-                    />
-                    <label for="description">Description</label>
-                    <input
-                        type="text"
-                        id="description"
-                        name="description"
-                        required
-                    />
-                    <label for="due_date">dueDate</label>
-                    <input type="date" id="due_date" name="due_date" required />
-                    <fieldset>
-                        <legend>Please Select Priority</legend>
-                        <div>
-                            <input
-                                type="radio"
-                                id="p1"
-                                name="priority"
-                                value="p1"
-                                required
-                            />
-                            <label for="p1">P1</label>
-
-                            <input
-                                type="radio"
-                                id="p2"
-                                name="priority"
-                                value="p2"
-                                required
-                            />
-                            <label for="p2">P2</label>
-
-                            <input
-                                type="radio"
-                                id="p3"
-                                name="priority"
-                                value="p3"
-                                required
-                            />
-                            <label for="p3">P3</label>
-                        </div>
-                    </fieldset>
-                    <div class="btns">
-                        <button type="submit" id="add_btn">Add</button>
-                        <button type="button" id="cancel_btn">Cancel</button>
-                    </div>
-                </form>
-            </dialog>
         </div>
+        <dialog>
+            <h1>Please Enter Info</h1>
+            <form method="dialog">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" required autofocus />
+                <label for="description">Description</label>
+                <input
+                    type="text"
+                    id="description"
+                    name="description"
+                    required
+                />
+                <label for="due_date">dueDate</label>
+                <input type="date" id="due_date" name="due_date" required />
+                <fieldset>
+                    <legend>Please Select Priority</legend>
+                    <div>
+                        <input
+                            type="radio"
+                            id="p1"
+                            name="priority"
+                            value="p1"
+                            required
+                        />
+                        <label for="p1">P1</label>
+
+                        <input
+                            type="radio"
+                            id="p2"
+                            name="priority"
+                            value="p2"
+                            required
+                        />
+                        <label for="p2">P2</label>
+
+                        <input
+                            type="radio"
+                            id="p3"
+                            name="priority"
+                            value="p3"
+                            required
+                        />
+                        <label for="p3">P3</label>
+                    </div>
+                </fieldset>
+                <div class="btns">
+                    <button type="submit" id="add_btn">Add</button>
+                    <button type="button" id="cancel_btn">Cancel</button>
+                </div>
+            </form>
+        </dialog>
         <div class="mainContainer"></div>
         <footer>Todo or not todo, that is the question...</footer>
     </body>

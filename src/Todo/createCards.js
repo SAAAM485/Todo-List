@@ -5,7 +5,8 @@ export default function createCards(
     description,
     dueDate,
     toDate,
-    priority
+    priority,
+    done
 ) {
     const mainContainer = document.querySelector(".mainContainer");
     const cardDiv = document.createElement("div");
@@ -26,6 +27,12 @@ export default function createCards(
     doneBtn.textContent = "Done";
     editBtn.textContent = "Edit";
     delBtn.textContent = "Delete";
+    cardDiv.classList.add("card");
+    if (done === true) {
+        cardDiv.classList.add("done");
+        editBtn.disabled = true;
+        doneBtn.disabled = true;
+    }
 
     cardDiv.appendChild(cardTitle);
     cardDiv.appendChild(cardDescription);

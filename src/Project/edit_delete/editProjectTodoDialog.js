@@ -18,6 +18,7 @@ export default function editProjectTodoDialog(index, sort, sortIndex) {
         });
     dateInput.min = now;
     dateInput.max = projectLibrary[index].date;
+    todoDialog.className = "projectTodoDialog";
     todoDialog.showModal();
 
     const addBtn = document.querySelector("#add_btn");

@@ -15,7 +15,8 @@ export default function renderProjects() {
             project.description,
             project.dueDate,
             project.toDate,
-            project.priority
+            project.priority,
+            project.done
         );
         card.doneBtn.addEventListener("click", () => {
             projectLibrary[index].done = true;

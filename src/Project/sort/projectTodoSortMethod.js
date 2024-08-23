@@ -2,11 +2,11 @@ import renderProjectPage from "../render/renderProjectPage";
 import projectTodosSortedByDate from "./projectTodosSortedByDate";
 import projectTodosSortedByPrio from "./projectTodosSortedByPrio";
 
-function projectTodoSortMethodChanged() {
+function projectTodoSortMethodChanged(index) {
     const sortMethod = document.querySelector("select");
     sortMethod.addEventListener("change", () => {
         if (sortMethod.value == "bycreate") {
-            renderProjectPage(index, sort);
+            renderProjectPage(index);
         } else if (sortMethod.value == "bydate") {
             renderProjectPage(index, projectTodosSortedByDate(index), "bydate");
         } else {

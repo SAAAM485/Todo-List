@@ -17,6 +17,7 @@ export default function todoDiolog() {
         });
     dateInput.min = now;
     dateInput.max = "";
+    todoDialog.className = "todoDialog";
     todoDialog.showModal();
 
     const addBtn = document.querySelector("#add_btn");

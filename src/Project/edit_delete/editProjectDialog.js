@@ -19,6 +19,7 @@ export default function editProjectDialog(index) {
         });
     dateInput.min = now;
     dateInput.max = "";
+    projectDialog.className = "projectDialog";
     projectDialog.showModal();
 
     const addBtn = document.querySelector("#add_btn");

@@ -12,7 +12,8 @@ export default function renderTodoPage(
     method = "bycreate"
 ) {
     clearPage();
-    renderSortMethod(method);
+    const mainContainer = document.querySelector(".mainContainer");
+    mainContainer.appendChild(renderSortMethod());
 
     todoArr.forEach((todo, index) => {
         let card = createCards(
@@ -20,7 +21,8 @@ export default function renderTodoPage(
             todo.description,
             todo.dueDate,
             todo.toDate,
-            todo.priority
+            todo.priority,
+            todo.done
         );
         card.doneBtn.addEventListener("click", () => {
             const ogIndex = todoLibrary.findIndex(

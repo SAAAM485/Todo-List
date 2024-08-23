@@ -20,6 +20,7 @@ export default function renderProjectPage(
 ) {
     clearPage();
     const mainContainer = document.querySelector(".mainContainer");
+    const projectDiv = document.createElement("div");
     const projectTitle = document.createElement("div");
     const projectDescription = document.createElement("div");
     const projectDueDate = document.createElement("div");
@@ -39,12 +40,23 @@ export default function renderProjectPage(
     editBtn.textContent = "Edit";
     delBtn.textContent = "Delete";
     addTodo.textContent = "+";
+    projectDiv.classList.add("projectDiv");
+
+    if (projectLibrary[index].done === true) {
+        projectDiv.classList.add("done");
+        editBtn.disabled = true;
+        doneBtn.disabled = true;
+        addTodo.disabled = true;
+    }
 
     doneBtn.addEventListener("click", () => {
         projectLibrary[index].done = true;
+        projectDiv.classList.add("done");
         sort.forEach((todo) => {
             todo.done = true;
         });
+        renderProjectBar();
+        renderProjectPage(index, sort, method);
     });
     addTodo.addEventListener("click", () => {
         projectTodoDialog(index);
@@ -60,17 +72,17 @@ export default function renderProjectPage(
         editProjectDialog(index, method);
     });
 
-    mainContainer.appendChild(projectTitle);
-    mainContainer.appendChild(projectDescription);
-    mainContainer.appendChild(projectDueDate);
-    mainContainer.appendChild(projectToDate);
-    mainContainer.appendChild(projectPriority);
-    mainContainer.appendChild(doneBtn);
-    mainContainer.appendChild(editBtn);
-    mainContainer.appendChild(delBtn);
-    mainContainer.appendChild(addTodo);
-
-    renderSortMethod(method);
+    projectDiv.appendChild(projectTitle);
+    projectDiv.appendChild(projectDescription);
+    projectDiv.appendChild(projectDueDate);
+    projectDiv.appendChild(projectToDate);
+    projectDiv.appendChild(projectPriority);
+    projectDiv.appendChild(doneBtn);
+    projectDiv.appendChild(editBtn);
+    projectDiv.appendChild(delBtn);
+    projectDiv.appendChild(addTodo);
+    projectDiv.appendChild(renderSortMethod(method));
+    mainContainer.appendChild(projectDiv);
 
     if (sort !== undefined) {
         sort.forEach((todo, sortIndex) => {
@@ -79,12 +91,12 @@ export default function renderProjectPage(
                 todo.description,
                 todo.dueDate,
                 todo.toDate,
-                todo.priority
+                todo.priority,
+                todo.done
             );
             card.doneBtn.addEventListener("click", () => {
-                sort[sortIndex].todos.forEach((todo) => {
-                    todo.done = true;
-                });
+                todo.done = true;
+                renderProjectPage(index, sort, method);
             });
             card.delBtn.addEventListener("click", () => {
                 deleteProjectTodo(sort, sortIndex);
@@ -93,11 +105,9 @@ export default function renderProjectPage(
             card.editBtn.addEventListener("click", () => {
                 editProjectTodo(sort, sortIndex);
                 editProjectTodoDialog(index, sort, sortIndex);
-                renderProjectBar();
-                renderProjectPage(index);
             });
         });
     }
 
-    projectTodoSortMethodChanged();
+    projectTodoSortMethodChanged(index);
 }
