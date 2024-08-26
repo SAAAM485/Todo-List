@@ -1,11 +1,10 @@
 import addProjectTodoHandler from "./addProjectTodo.js";
 import { projectLibrary } from "./projectLibrary.js";
-import renderProjectPage from "./render/renderProjectPage.js";
 
 export default function projectTodoDialog(index) {
     const todoDialog = document.querySelector("dialog");
+    todoDialog.dataset.index = index;
     const dialogTitle = document.querySelector("h1");
-    const dialogForm = document.querySelector("form");
     dialogTitle.textContent = `Please Enter The Todo Info Of ${projectLibrary[index].title}`;
     const dateInput = document.querySelector('input[name="due_date"]');
     const now = new Date(Date.now())
@@ -22,13 +21,5 @@ export default function projectTodoDialog(index) {
     todoDialog.showModal();
 
     const addBtn = document.querySelector("#add_btn");
-    addBtn.addEventListener(
-        "click",
-        (event) => {
-            addProjectTodoHandler(event, index);
-            renderProjectPage();
-            dialogForm.reset();
-        },
-        { once: true }
-    );
+    addBtn.addEventListener("click", addProjectTodoHandler, true);
 }

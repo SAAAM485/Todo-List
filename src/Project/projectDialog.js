@@ -1,11 +1,8 @@
 import addProjectHandler from "./addProject.js";
-import renderProjectBar from "./render/renderProjectBar.js";
-import renderProjectPage from "./render/renderProjectPage.js";
 
 export default function projectDiolog() {
     const projectDialog = document.querySelector("dialog");
     const dialogTitle = document.querySelector("h1");
-    const dialogForm = document.querySelector("form");
     dialogTitle.textContent = "Please Enter The Project Info";
     const dateInput = document.querySelector('input[name="due_date"]');
     const now = new Date(Date.now())
@@ -22,14 +19,5 @@ export default function projectDiolog() {
     projectDialog.showModal();
 
     const addBtn = document.querySelector("#add_btn");
-    addBtn.addEventListener(
-        "click",
-        (event) => {
-            addProjectHandler(event);
-            renderProjectBar();
-            renderProjectPage();
-            dialogForm.reset();
-        },
-        { once: true }
-    );
+    addBtn.addEventListener("click", addProjectHandler, true);
 }
