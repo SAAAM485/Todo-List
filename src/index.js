@@ -8,6 +8,7 @@ import { format, formatDistanceToNow } from "date-fns";
 import { updateProjectTodoLibrary } from "./Todo/todoLibrary";
 import renderProjectBar from "./Project/render/renderProjectBar";
 import renderProjectPage from "./Project/render/renderProjectPage";
+import renderProjects from "./Project/render/renderProjects";
 
 function example() {
     const exampleDate = new Date();
@@ -75,4 +76,13 @@ function listeners() {
 }
 
 listeners();
-example();
+
+if (
+    !localStorage.getItem("projectLibrary") &&
+    !localStorage.getItem("todoLibrary")
+) {
+    example();
+} else {
+    renderProjectBar();
+    renderProjects();
+}

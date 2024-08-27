@@ -8,8 +8,7 @@ export default function createCards(
     priority,
     done
 ) {
-    const mainContainer = document.querySelector(".mainContainer");
-    const cardContainer = document.createElement("div");
+    const cardContainer = document.querySelector(".cardContainer");
     const cardDiv = document.createElement("div");
     const cardTitle = document.createElement("div");
     const cardDescription = document.createElement("div");
@@ -20,7 +19,6 @@ export default function createCards(
     const editBtn = document.createElement("button");
     const delBtn = document.createElement("button");
 
-    cardContainer.classList.add("cardContainer");
     cardTitle.textContent = title;
     cardDescription.textContent = description;
     cardDueDate.textContent = dueDate;
@@ -45,7 +43,6 @@ export default function createCards(
     cardDiv.appendChild(editBtn);
     cardDiv.appendChild(delBtn);
     cardContainer.appendChild(cardDiv);
-    mainContainer.appendChild(cardContainer);
 
     return { doneBtn, delBtn, editBtn, cardDiv };
 }

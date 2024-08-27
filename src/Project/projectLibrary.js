@@ -1,6 +1,7 @@
+import getLocalStorage from "../getLocalStorage.js";
 import Project from "./project.js";
 
-const projectLibrary = [];
+const projectLibrary = getLocalStorage().projectLibrary;
 
 function updateProjectLibrary(
     title,
@@ -19,6 +20,7 @@ function updateProjectLibrary(
         priority
     );
     projectLibrary.push(project);
+    localStorage.setItem("projectLibrary", JSON.stringify(projectLibrary));
 }
 
 function editProjectLibrary(
@@ -43,6 +45,7 @@ function editProjectLibrary(
         done
     );
     projectLibrary.splice(index, 1, project);
+    localStorage.setItem("projectLibrary", JSON.stringify(projectLibrary));
 }
 
 export { projectLibrary, updateProjectLibrary, editProjectLibrary };

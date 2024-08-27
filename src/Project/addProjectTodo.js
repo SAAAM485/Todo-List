@@ -38,7 +38,7 @@ export default function addProjectTodoHandler(event) {
             priorityValue
         );
 
-        renderProjectPage();
+        renderProjectPage(index);
 
         addBtn.removeEventListener("click", addProjectTodoHandler, true);
 
