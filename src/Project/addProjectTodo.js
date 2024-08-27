@@ -7,12 +7,15 @@ export default function addProjectTodoHandler(event) {
     const addBtn = document.querySelector("#add_btn");
     const dialog = document.querySelector("dialog");
     const index = dialog.dataset.index;
-    dialog.dataset.index = "";
     const dialogForm = document.querySelector("form");
     const title = document.querySelector("#title").value;
     const description = document.querySelector("#description").value;
     const date = document.querySelector("#due_date").value;
     const priority = document.querySelector('input[name="priority"]:checked');
+    const cancelBtn = document.querySelector("#cancel_btn");
+    cancelBtn.addEventListener("click", () => {
+        addBtn.removeEventListener("click", addProjectTodoHandler, true);
+    });
 
     if (
         dialog !== "" &&
@@ -23,9 +26,7 @@ export default function addProjectTodoHandler(event) {
     ) {
         const dueDate = format(date, "MMM dd y");
         const toDate = `${formatDistanceToNow(dueDate)} left`;
-        const priorityValue = document.querySelector(
-            'input[name="priority"]:checked'
-        ).value;
+        const priorityValue = priority.value;
 
         updateProjectTodoLibrary(
             index,
@@ -43,5 +44,8 @@ export default function addProjectTodoHandler(event) {
 
         dialog.close();
         dialogForm.reset();
+    } else {
+        alert("Fields must be filled out");
+        return;
     }
 }

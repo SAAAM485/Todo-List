@@ -2,6 +2,7 @@ import { updateProjectLibrary } from "./projectLibrary.js";
 import { format, formatDistanceToNow } from "date-fns";
 import renderProjectBar from "./render/renderProjectBar.js";
 import renderProjectPage from "./render/renderProjectPage.js";
+import { projectLibrary } from "./projectLibrary.js";
 
 export default function addProjectHandler(event) {
     event.preventDefault();
@@ -12,6 +13,10 @@ export default function addProjectHandler(event) {
     const description = document.querySelector("#description").value;
     const date = document.querySelector("#due_date").value;
     const priority = document.querySelector('input[name="priority"]:checked');
+    const cancelBtn = document.querySelector("#cancel_btn");
+    cancelBtn.addEventListener("click", () => {
+        addBtn.removeEventListener("click", addProjectHandler, true);
+    });
 
     if (
         dialog !== "" &&
@@ -22,9 +27,7 @@ export default function addProjectHandler(event) {
     ) {
         const dueDate = format(date, "MMM dd y");
         const toDate = `${formatDistanceToNow(dueDate)} left`;
-        const priorityValue = document.querySelector(
-            'input[name="priority"]:checked'
-        ).value;
+        const priorityValue = priority.value;
 
         updateProjectLibrary(
             title,
@@ -42,5 +45,8 @@ export default function addProjectHandler(event) {
 
         dialog.close();
         dialogForm.reset();
+    } else {
+        alert("Fields must be filled out");
+        return;
     }
 }
