@@ -5,83 +5,83 @@ import getLocalStorage from "../getLocalStorage.js";
 const todoLibrary = getLocalStorage().todoLibrary;
 
 function updateProjectTodoLibrary(
-    index,
-    title,
-    description,
-    date,
-    dueDate,
-    toDate,
-    priority
+  index,
+  title,
+  description,
+  date,
+  dueDate,
+  toDate,
+  priority,
 ) {
-    let todo = new Todo(title, description, date, dueDate, toDate, priority);
-    projectLibrary[index].todos.push(todo);
-    localStorage.setItem("projectLibrary", JSON.stringify(projectLibrary));
+  let todo = new Todo(title, description, date, dueDate, toDate, priority);
+  projectLibrary[index].todos.push(todo);
+  localStorage.setItem("projectLibrary", JSON.stringify(projectLibrary));
 }
 
 function editProjectTodoLibrary(
-    projectIndex,
-    todoIndex,
+  projectIndex,
+  todoIndex,
+  title,
+  description,
+  date,
+  dueDate,
+  toDate,
+  priority,
+  done,
+) {
+  let todo = new Todo(
     title,
     description,
     date,
     dueDate,
     toDate,
     priority,
-    done
-) {
-    let todo = new Todo(
-        title,
-        description,
-        date,
-        dueDate,
-        toDate,
-        priority,
-        done
-    );
-    projectLibrary[projectIndex].todos.splice(todoIndex, 1, todo);
-    localStorage.setItem("projectLibrary", JSON.stringify(projectLibrary));
+    done,
+  );
+  projectLibrary[projectIndex].todos.splice(todoIndex, 1, todo);
+  localStorage.setItem("projectLibrary", JSON.stringify(projectLibrary));
 }
 
 function updateTodoLibrary(
-    title,
-    description,
-    date,
-    dueDate,
-    toDate,
-    priority
+  title,
+  description,
+  date,
+  dueDate,
+  toDate,
+  priority,
 ) {
-    let todo = new Todo(title, description, date, dueDate, toDate, priority);
-    todoLibrary.push(todo);
-    localStorage.setItem("todoLibrary", JSON.stringify(todoLibrary));
+  let todo = new Todo(title, description, date, dueDate, toDate, priority);
+  todoLibrary.push(todo);
+  localStorage.setItem("todoLibrary", JSON.stringify(todoLibrary));
 }
 
 function editTodoLibrary(
-    index,
+  index,
+  title,
+  description,
+  date,
+  dueDate,
+  toDate,
+  priority,
+  done,
+) {
+  let todo = new Todo(
     title,
     description,
     date,
     dueDate,
     toDate,
     priority,
-    done
-) {
-    let todo = new Todo(
-        title,
-        description,
-        date,
-        dueDate,
-        toDate,
-        priority,
-        done
-    );
-    todoLibrary.splice(index, 1, todo);
-    localStorage.setItem("todoLibrary", JSON.stringify(todoLibrary));
+    done,
+  );
+  todoLibrary.splice(index, 1, todo);
+  localStorage.setItem("todoLibrary", JSON.stringify(todoLibrary));
 }
 
 export {
-    todoLibrary,
-    updateTodoLibrary,
-    updateProjectTodoLibrary,
-    editTodoLibrary,
-    editProjectTodoLibrary,
+  todoLibrary,
+  updateTodoLibrary,
+  updateProjectTodoLibrary,
+  editTodoLibrary,
+  editProjectTodoLibrary,
 };

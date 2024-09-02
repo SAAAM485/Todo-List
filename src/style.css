@@ -1,261 +1,269 @@
 body {
-    margin: 0;
-    border: 0;
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 6fr;
-    grid-template-rows: 9fr 1fr;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-        sans-serif;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 7s ease infinite;
+  margin: 0;
+  border: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  grid-template-rows: 9fr 1fr;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 7s ease infinite;
 }
 
 @keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .sidebar {
-    grid-area: 1 / 1 / 2 / 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 3rem;
-    background-color: #23d5aba4;
+  grid-area: 1 / 1 / 2 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 3rem;
+  background-color: #23d5aba4;
 }
 
 .sidebar > * {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .sidebar > ul {
-    border: 0.1rem #ee7752 solid;
+  border: 0.1rem #ee7752 solid;
 }
 
 .sidebar button {
-    border: none;
-    background-color: #ee7752;
-    border-radius: 0;
-    width: 12vw;
-    margin: 0 0 1rem -1rem;
-    font-size: 1.3rem;
-    text-align: left;
+  border: none;
+  background-color: #ee7752;
+  border-radius: 0;
+  width: 12vw;
+  margin: 0 0 1rem -1rem;
+  font-size: 1.3rem;
+  text-align: left;
 }
 
 .sidebar button:hover {
-    color: white;
-    background-color: #e99e87;
+  color: white;
+  background-color: #e99e87;
 }
 
 button:active {
-    background-color: #e2dad6;
-    border: 0.1rem solid #6482ad;
-    color: #6482ad;
-    transform: translateY(0.02rem);
+  background-color: #e2dad6;
+  border: 0.1rem solid #6482ad;
+  color: #6482ad;
+  transform: translateY(0.02rem);
 }
 
 .container {
-    grid-area: 1 / 2 / 2 / 3;
-    padding-top: 3rem;
-    background-image: url("./media/bagel.png");
+  grid-area: 1 / 2 / 2 / 3;
+  padding-top: 3rem;
+  background-image: url("./media/bagel.png");
 }
 
 footer {
-    grid-area: 2 / 1 / 3 / 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ee7652d8;
-    height: 10vh;
+  grid-area: 2 / 1 / 3 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ee7652d8;
+  height: 10vh;
 }
 
 dialog {
-    border: #1f2937;
-    border-radius: 2rem;
-    background-color: #f9faf8;
-    color: black;
-    font-size: 1.5rem;
-    padding: 2rem 5rem;
-    max-width: 50vw;
-    max-height: 50vh;
+  border: #1f2937;
+  border-radius: 2rem;
+  background-color: #f9faf8;
+  color: black;
+  font-size: 1.5rem;
+  padding: 2rem 5rem;
+  max-width: 50vw;
+  max-height: 50vh;
 }
 
 .projectDialog {
-    background-color: #ee7652c5;
+  background-color: #ee7652c5;
 }
 
 .projectTodoDialog {
-    background-color: #e73c7ecb;
+  background-color: #e73c7ecb;
 }
 
 .todoDialog {
-    background-color: #23d5abc7;
+  background-color: #23d5abc7;
 }
 
 dialog form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
 }
 
 dialog label,
 legend {
-    padding: 0;
-    margin-bottom: 0.2rem;
-    font-weight: 450;
+  padding: 0;
+  margin-bottom: 0.2rem;
+  font-weight: 450;
 }
 
 dialog .btns {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 dialog form input[type="text"],
 input[type="date"] {
-    appearance: none;
-    outline: none;
-    padding: 0 1.2rem;
-    font-family: inherit;
-    font-size: 1.1rem;
-    letter-spacing: 0.02rem;
-    height: 2rem;
-    margin-bottom: 1.5rem;
-    border: #1f2937 0.1rem solid;
-    border-radius: 2rem;
+  appearance: none;
+  outline: none;
+  padding: 0 1.2rem;
+  font-family: inherit;
+  font-size: 1.1rem;
+  letter-spacing: 0.02rem;
+  height: 2rem;
+  margin-bottom: 1.5rem;
+  border: #1f2937 0.1rem solid;
+  border-radius: 2rem;
 }
 
 dialog fieldset {
-    border: none;
-    padding: 0;
-    margin: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 dialog form button {
-    border: none;
-    border-radius: 2rem;
-    background-color: #f9faf8;
-    color: black;
-    font-size: 1.3rem;
-    height: 2.5rem;
-    width: 10rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: #f9faf8;
+  color: black;
+  font-size: 1.3rem;
+  height: 2.5rem;
+  width: 10rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 dialog::backdrop {
-    backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
 }
 
 select {
-    border: #1f2937 0.1rem solid;
-    border-radius: 2rem;
-    background-color: rgb(247, 252, 255);
-    color: black;
-    align-self: center;
-    height: 2rem;
-    padding: 0 1.2rem;
+  border: #1f2937 0.1rem solid;
+  border-radius: 2rem;
+  background-color: rgb(247, 252, 255);
+  color: black;
+  align-self: center;
+  height: 2rem;
 }
 
 button {
-    border: #1f2937 0.1rem solid;
-    border-radius: 2rem;
-    background-color: rgb(247, 252, 255);
-    color: black;
-    align-self: center;
+  border: #1f2937 0.1rem solid;
+  border-radius: 2rem;
+  background-color: rgb(247, 252, 255);
+  color: black;
+  align-self: center;
 }
 
 button:hover {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .projectDiv {
-    border-radius: 2rem;
-    padding: 2rem;
-    background-color: rgba(247, 252, 255, 0.897);
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
-    max-height: 15vh;
+  border-radius: 2rem;
+  padding: 2rem;
+  background-color: rgba(247, 252, 255, 0.897);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  max-height: 15vh;
 }
 
 .projectDiv > * {
-    margin-top: 0.8rem;
-    margin-right: 0.08rem;
-    font-size: 1.2rem;
+  margin-top: 0.8rem;
+  margin-right: 0.08rem;
+  font-size: 1.2rem;
 }
 
 .projectDiv button {
-    height: 2rem;
-    width: 5rem;
+  height: 2rem;
+  width: 5rem;
 }
 
 .projectDiv div:first-of-type {
-    font-weight: 400;
-    font-size: 1.4rem;
-    margin-top: 0;
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin-top: 0;
 }
 
 .mainContainer {
-    margin: 0 3rem;
+  margin: 0 3rem;
 }
 
 .cardContainer {
-    display: grid;
-    padding: 3rem 0;
-    margin: 0 3rem;
-    gap: 3rem;
-    grid-template-columns: repeat(auto-fit, minmax(12vw, 15vw));
-    grid-template-rows: 1fr 1fr;
-    grid-auto-flow: row;
+  display: grid;
+  padding: 3rem 0;
+  margin: 0 3rem;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(12vw, 15vw));
+  grid-template-rows: 1fr 1fr;
+  grid-auto-flow: row;
 }
 
 .card {
-    border-radius: 2rem;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
-    background-color: rgba(247, 252, 255, 0.897);
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
+  border-radius: 2rem;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  background-color: rgba(247, 252, 255, 0.897);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
 }
 
 .card > * {
-    font-size: 1.2rem;
-    font-weight: 400;
-    letter-spacing: 0.03rem;
-    margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.03rem;
+  margin-bottom: 1.5rem;
 }
 
 .card button {
-    border: #1f2937 0.1rem solid;
-    border-radius: 2rem;
-    background-color: rgb(247, 252, 255);
-    color: black;
-    height: 2.5rem;
-    width: 6rem;
-    align-self: center;
-    margin-top: auto;
-    margin-bottom: 0;
+  border: #1f2937 0.1rem solid;
+  border-radius: 2rem;
+  background-color: rgb(247, 252, 255);
+  color: black;
+  height: 2.5rem;
+  width: 6rem;
+  align-self: center;
+  margin-top: auto;
+  margin-bottom: 0;
 }
 
 .card button:hover {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 button.done,
 .done {
-    background-color: rgba(131, 113, 113, 0.767);
+  background-color: rgba(131, 113, 113, 0.767);
 }
 
 button:disabled {
-    background-color: rgba(131, 113, 113, 0.767);
+  background-color: rgba(131, 113, 113, 0.767);
 }

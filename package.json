@@ -7,16 +7,20 @@
     "start": "webpack serve --open",
     "build": "webpack",
     "subinit": "git add dist && git commit -m \"Initial dist subtree commit\"",
-    "subpush":"git subtree push --prefix dist origin gh-pages"
+    "subpush": "git subtree push --prefix dist origin gh-pages"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@eslint/js": "^9.9.1",
     "classname": "^0.0.0",
     "css-loader": "^7.1.2",
     "date-fns": "^3.6.0",
+    "eslint": "^9.9.1",
+    "globals": "^15.9.0",
     "html-webpack-plugin": "^5.6.0",
+    "prettier": "3.3.3",
     "style-loader": "^4.0.0",
     "webpack": "^5.93.0",
     "webpack-cli": "^5.1.4",
